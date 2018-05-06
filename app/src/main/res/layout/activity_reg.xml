@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.tazo.artr.RegActivity">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        >
+        <TextView
+            android:gravity="center"
+            android:text="회원가입"
+            android:textSize="15pt"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:textColor="#c573ff"
+            />
+
+        <TableRow
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/me_name"
+                android:gravity="center"
+                android:text="이름"
+                android:textSize="7pt"
+                android:layout_weight="1"
+                />
+            <EditText
+                android:layout_weight="3"
+                android:layout_width="150dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="생년월일"
+                android:textSize="7pt"
+                android:layout_weight="1"
+                />
+            <LinearLayout
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/me_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+                <EditText
+                    android:id="@+id/me_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+                <EditText
+                    android:id="@+id/me_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:text="날짜"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="showCal"/>
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/me_tall"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="키"
+                android:textSize="7pt"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_weight="3"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/me_kg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="몸무게"
+                android:textSize="7pt"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_weight="3"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="목표"
+                android:textSize="7pt"
+                />
+            <LinearLayout
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/me_check_diet"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="다이어트" />
+                <RadioButton
+                    android:id="@+id/me_check_stret"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스트레칭" />
+                <RadioButton
+                    android:id="@+id/me_check_medi"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="명상"
+                    />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="50dp">
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="실력"
+                android:textSize="7pt"
+                />
+            <LinearLayout
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/me_level_high"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상" />
+                <RadioButton
+                    android:id="@+id/me_level_mid"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="중" />
+                <RadioButton
+                    android:id="@+id/me_level_low"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="하"
+                    />
+            </LinearLayout>
+
+        </TableRow>
+
+
+        <TableRow android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="아이디"
+                android:textSize="7pt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="3">
+
+                <EditText
+                    android:id="@+id/me_id"
+                    android:layout_width="200dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:onClick="check"
+                    android:layout_weight="1"
+                    android:text="중복 확인" />
+            </LinearLayout>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="비밀번호"
+                android:textSize="7pt"
+                android:layout_weight="1"/>
+
+
+            <EditText
+                android:id="@+id/me_pw"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </TableRow>
+        <Button
+            android:layout_marginTop="20dp"
+            android:text="확인"
+            android:onClick="regist"
+            android:textColor="#404040"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableLayout>
+
+
+</ScrollView>
