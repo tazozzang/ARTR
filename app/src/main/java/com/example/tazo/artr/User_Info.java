@@ -26,8 +26,8 @@ public class User_Info implements Serializable{
         this.me_day = 18;
         this.me_tall = 165;
         this.me_kg = 53;
-        this.me_check = 0;
-        this.me_level = 0; // 내 레벨은 하
+        this.me_check = 1;
+        this.me_level = 1; // 내 레벨은 하
         this.me_id = "dlwldus718";
         this.me_pw = "dlwldus718";
     }
@@ -78,7 +78,21 @@ public class User_Info implements Serializable{
     public int getMe_day(){return me_day;}
     public int getMe_tall(){return me_tall;}
     public int getMe_kg(){return me_kg;}
-    public int getMe_check(){return me_check;}
+    public String getMe_check(){
+        String answer = "목표";
+        switch (me_check){
+            case 0:
+                answer =  "다이어트";
+                break;
+            case 1:
+                answer =  "스트레칭";
+                break;
+            case 2:
+                answer =   "명상";
+                break;
+        }
+        return answer;
+    }
     public int getMe_level(){return me_level;}
     public String getMe_id(){return  me_id;}
     public String getMe_pw(){return me_pw;}

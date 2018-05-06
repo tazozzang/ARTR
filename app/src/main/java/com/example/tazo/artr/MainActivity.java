@@ -4,9 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity
     FragmentTransaction fragmentTransaction;
 
     User_Info user_info;
+
+    TextView username;
+    TextView userid;
+    ImageView userava;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +40,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,8 +57,20 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View nav_header = navigationView.getHeaderView(0);
 
+        username = (TextView)nav_header.findViewById(R.id.user_name);
+        userid = (TextView)nav_header.findViewById(R.id.user_id);
+        userava = (ImageView)nav_header.findViewById(R.id.imageView);
 
+        if(user_info != null) {
+            username.setText(user_info.getMe_Name());
+            userid.setText(user_info.getMe_id());
+        }else{
+            user_info = new User_Info();
+            username.setText(user_info.getMe_Name());
+            userid.setText(user_info.getMe_id());
+        }
     }
 
     void init(Bundle savedInstanceState){
@@ -71,8 +87,12 @@ public class MainActivity extends AppCompatActivity
         }
 
         Intent getIntent = getIntent();
-        user_info = (User_Info) getIntent.getSerializableExtra("user_info");
-
+        if(getIntent != null) {
+            user_info = (User_Info) getIntent.getSerializableExtra("user_info");
+        }
+        else{
+            user_info = new User_Info();
+        }
     }
 
     @Override
@@ -100,10 +120,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            //환경 설정
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            //환경 설정
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -127,6 +147,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_menu) {
             FragMy fragMy = new FragMy();
+
             fragmentTransaction.replace(R.id.main_frame,fragMy).commit();
 
         }  else if (id == R.id.nav_share) {
@@ -139,4 +160,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    public User_Info getData(){return  user_info;}
 }

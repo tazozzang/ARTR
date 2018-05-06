@@ -14,7 +14,7 @@ import android.widget.TextView;
  */
 
 public class FragTrain extends Fragment {
-    
+
     View root;
     TextView get_train;
     ImageView yoga_teach;

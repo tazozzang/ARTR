@@ -4,11 +4,13 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,13 +38,22 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         Friend friend = arrayList.get(position);
         if(friend != null){
             ImageView FAva = (ImageView)v.findViewById(R.id.fri_ava);
-            TextView FName = (TextView)v.findViewById(R.id.fri_name);
+            final TextView FName = (TextView)v.findViewById(R.id.fri_name);
             TextView FCheck = (TextView)v.findViewById(R.id.fri_check);
             TextView FLevel = (TextView)v.findViewById(R.id.fri_level);
-            if(FAva != null){}
+            ImageView jorgi = (ImageView)v.findViewById(R.id.jorgi);
+            if(FAva != null){FAva.setImageResource(R.drawable.friavatar);}
             if(FName != null){FName.setText(friend.getFName());}
             if(FCheck != null){FCheck.setText(Integer.toString(friend.getFCheck()));}
             if(FLevel != null){FLevel.setText(Integer.toString(friend.getFLevel()));}
+            jorgi.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    //popup뜨면 좋겠지만
+                    Toast.makeText(getContext(),FName.getText() + "씨, 같이 운동합시다!", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            });
         }
         return v;
     }

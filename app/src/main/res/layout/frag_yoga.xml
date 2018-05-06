@@ -18,7 +18,7 @@
             android:id="@+id/diet_train"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="#f1dbfc"
             android:text="다이어트"
             android:onClick="train_click"/>
         <Button
@@ -27,7 +27,7 @@
             android:id="@+id/yoga_train"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/colorPrimary"
+            android:background="#e7d1fc"
             android:text="스트레칭"
             android:onClick="train_click"/>
         <Button
@@ -36,7 +36,7 @@
             android:id="@+id/medi_train"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="#f1dbfc"
             android:text="명상"
             android:onClick="train_click"/>
 
