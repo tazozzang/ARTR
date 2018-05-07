@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/White"
     tools:context="com.example.tazo.artr.LoginActivity">
 
     <EditText
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content" />
     <Button
         android:layout_marginTop="20dp"
-        android:background="#e4b4ff"
+        android:background="#ffc8c8"
         android:id="@+id/login_bt"
         android:text="LOGIN"
         android:textColor="#4D4D4D"

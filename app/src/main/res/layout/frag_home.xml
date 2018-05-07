@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/White"
+
+    android:padding="@dimen/fab_margin">
+<TextView
+    android:textColor="@color/colorPrimary"
+    android:textSize="15pt"
+    android:text="운동 현황"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="50dp" />
+<ImageView
+    android:layout_marginTop="10dp"
+    android:src="@drawable/graph"
+    android:layout_width="match_parent"
+    android:layout_height="280dp" />
+    <TextView
+        android:gravity="center"
+        android:text="오늘의 운동량"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12pt"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+    <ProgressBar
+        android:max="100"
+        android:progress="30"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="소요 시간"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="10pt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <TextView
+                android:text="2시간 16분"
+                android:textSize="11pt"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1
+"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="10pt"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="소모 칼로리" />
+            <TextView
+                android:text="180Kcal"
+                android:gravity="center"
+                android:textSize="11pt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

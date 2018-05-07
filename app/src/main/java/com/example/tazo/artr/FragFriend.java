@@ -34,8 +34,8 @@ public class FragFriend extends Fragment {
         //여기다가 화면 구성
         arrayList = new ArrayList<Friend>();
         listView = (ListView)root.findViewById(R.id.listview);
-        friends[0] = new Friend(R.drawable.friavatar,"남정아",1,2);
-        friends[1] = new Friend(R.drawable.friavatar, "박민지", 2,1);
+        friends[0] = new Friend(R.drawable.ja,"남정아",1,2);
+        friends[1] = new Friend(R.drawable.mj, "박민지", 2,1);
         arrayList.add(friends[0]);
         arrayList.add(friends[1]);
 

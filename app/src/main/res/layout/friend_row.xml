@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/White"
     android:orientation="horizontal"
     android:padding="16dp"
     android:layout_gravity="center">
@@ -10,17 +11,17 @@
         android:id="@+id/fri_ava"
         android:src="@mipmap/ic_launcher"
         android:layout_width="75dp"
-        android:layout_height="85dp" />
+        android:layout_height="105dp" />
     <LinearLayout
         android:layout_marginLeft="10dp"
         android:layout_width="200dp"
-        android:layout_height="85dp"
+        android:layout_height="105dp"
         android:orientation="vertical">
         <TextView
             android:layout_marginBottom="5dp"
             android:id="@+id/fri_name"
             android:text="이름"
-            android:textSize="9pt"
+            android:textSize="10pt"
             android:layout_width="match_parent"
             android:layout_height="30dp"></TextView>
         <TextView
@@ -35,11 +36,15 @@
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="20dp" />
+        <TextView
+            android:text="최근 접속 날짜 : 2018-05-07"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
     </LinearLayout>
     <ImageView
         android:id="@+id/jorgi"
         android:layout_marginLeft="10dp"
         android:src="@drawable/jorgi"
         android:layout_width="75dp"
-        android:layout_height="85dp" />
+        android:layout_height="105dp" />
 </LinearLayout>

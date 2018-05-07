@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Intent getIntent = getIntent();
-        user_info = (User_Info) getIntent.getSerializableExtra("user_info");
+        user_info = (User_Info) getIntent.getSerializableExtra("reg_info");
 
         login_bt = (Button)findViewById(R.id.login_bt);
         join_bt = (TextView)findViewById(R.id.join_bt);
@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                if(user_info == null) user_info = new User_Info();
                 i.putExtra("user_info",user_info);
                 finish();
                 startActivity(i);

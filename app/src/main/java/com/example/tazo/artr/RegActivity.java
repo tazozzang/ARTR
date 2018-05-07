@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class RegActivity extends AppCompatActivity {
@@ -19,9 +20,19 @@ public class RegActivity extends AppCompatActivity {
     String year;
     String month;
     String day;
+    EditText my_name;
     EditText my_year;
     EditText my_month;
     EditText my_day;
+    EditText my_tall;
+    EditText my_kg;
+    EditText my_id;
+    EditText my_pw;
+
+    RadioGroup radioGroup;
+
+    int check = 0;
+
     private PopupWindow Calendarpop;
     DatePicker datePicker;
     User_Info user_info;
@@ -30,10 +41,24 @@ public class RegActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
 
+        my_name = (EditText)findViewById(R.id.me_name);
         my_year = (EditText)findViewById(R.id.me_year);
         my_month = (EditText)findViewById(R.id.me_month);
         my_day = (EditText)findViewById(R.id.me_day);
+        my_tall = (EditText)findViewById(R.id.me_tall);
+        my_kg = (EditText)findViewById(R.id.me_kg);
+        my_id = (EditText)findViewById(R.id.me_id);
+        my_pw = (EditText)findViewById(R.id.me_pw);
 
+        radioGroup = (RadioGroup)findViewById(R.id.radio_check);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i == R.id.me_check_pila){check = 0;}
+                else if(i == R.id.me_check_yoga){check = 1;}
+                else if(i == R.id.me_check_pt){check = 2;}
+            }
+        });
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void showCal(View view){
@@ -71,8 +96,27 @@ public class RegActivity extends AppCompatActivity {
     public void regist(View view){
         //데이터 user_info에 넣어주기
         Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-        user_info = new User_Info();
-        i.putExtra("user_info",user_info);
+
+        if(my_name.getText().toString().length() > 0 && my_year.getText().length() > 0 &&
+                my_month.getText().toString().length() > 0 &&
+                my_day.getText().toString().length() > 0 &&
+                my_tall.getText().toString().length() > 0 &&
+                my_kg.getText().toString().length() > 0 &&
+                my_id.getText().toString().length() > 0 &&
+                my_pw.getText().toString().length() > 0){
+            user_info = new User_Info(my_name.getText().toString(),
+                    Integer.parseInt(my_year.getText().toString()),
+                    Integer.parseInt(my_month.getText().toString()),
+                    Integer.parseInt(my_day.getText().toString()),
+                    Integer.parseInt(my_tall.getText().toString()),
+                    Integer.parseInt(my_kg.getText().toString()),
+                    check,
+                    my_id.getText().toString(), my_pw.getText().toString());
+
+        }
+        else user_info = new User_Info();
+
+        i.putExtra("reg_info",user_info);
         finish();
 
         startActivity(i);

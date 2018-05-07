@@ -42,10 +42,10 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
             TextView FCheck = (TextView)v.findViewById(R.id.fri_check);
             TextView FLevel = (TextView)v.findViewById(R.id.fri_level);
             ImageView jorgi = (ImageView)v.findViewById(R.id.jorgi);
-            if(FAva != null){FAva.setImageResource(R.drawable.friavatar);}
+            if(FAva != null){FAva.setImageResource(friend.getFAvatar());}
             if(FName != null){FName.setText(friend.getFName());}
-            if(FCheck != null){FCheck.setText(Integer.toString(friend.getFCheck()));}
-            if(FLevel != null){FLevel.setText(Integer.toString(friend.getFLevel()));}
+            if(FCheck != null){FCheck.setText(friend.getFCheck() + "를 목표로");}
+            if(FLevel != null){FLevel.setText(Integer.toString(friend.getFLevel()) + "시간 째 운동 중!");}
             jorgi.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {

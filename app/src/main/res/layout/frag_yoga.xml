@@ -1,45 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/fab_margin"
     >
-    <LinearLayout
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        >
 
-        <Button
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/diet_train"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#f1dbfc"
-            android:text="다이어트"
-            android:onClick="train_click"/>
-        <Button
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/yoga_train"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#e7d1fc"
-            android:text="스트레칭"
-            android:onClick="train_click"/>
-        <Button
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/medi_train"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#f1dbfc"
-            android:text="명상"
-            android:onClick="train_click"/>
 
-    </LinearLayout>
+        <ImageView
+            android:src="@drawable/tv"
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-</ScrollView>
+
+</LinearLayout>

@@ -29,7 +29,21 @@ public class Friend implements Parcelable{
     }
     public int getFAvatar(){return FAvatar;}
     public String getFName(){return FName;}
-    public int getFCheck(){return FCheck;}
+    public String getFCheck(){
+        String answer = "목표";
+        switch (FCheck){
+            case 0:
+                answer =  "필라테스";
+                break;
+            case 1:
+                answer =  "요가";
+                break;
+            case 2:
+                answer =   "PT";
+                break;
+        }
+        return answer;
+    }
     public int getFLevel(){return FLevel;}
 
     public static final Creator<Friend> CREATOR = new Creator<Friend>() {

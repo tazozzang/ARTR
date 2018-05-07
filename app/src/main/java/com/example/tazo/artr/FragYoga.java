@@ -3,22 +3,22 @@ package com.example.tazo.artr;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 
-public class FragYoga extends Fragment implements View.OnClickListener {
+public class FragYoga extends Fragment {
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     View root;
-    Button yoga_train;
-    Button diet_train;
-    Button medi_train;
+
+    ImageView imageView;
+
 
     @Nullable
     @Override
@@ -31,53 +31,24 @@ public class FragYoga extends Fragment implements View.OnClickListener {
         return root;
     }
 
-    void init(){
-    //여기다가 화면 구성
-        yoga_train = (Button)root.findViewById(R.id.yoga_train);
-        diet_train = (Button)root.findViewById(R.id.diet_train);
-        medi_train = (Button)root.findViewById(R.id.medi_train);
+    void init() {
+        //여기다가 화면 구성
 
-        yoga_train.setOnClickListener(this);
-        diet_train.setOnClickListener(this);
-        medi_train.setOnClickListener(this);
-        // 뭐 누르면 FragTrain 으로 바뀔것
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1){
-            if(resultCode == getActivity().RESULT_OK){
-                //당장은 필요 없는 부분
-            }
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
-        FragTrain fragTrain = new FragTrain();
-        Bundle bundle = new Bundle();
+        imageView = (ImageView) root.findViewById(R.id.tv);
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                FragTrain fragTrain = new FragTrain();
 
-        switch (view.getId()){
-            case R.id.diet_train:
-                bundle.putString("Train","Diet");
-                fragTrain.setArguments(bundle);
-                break;
-            case R.id.yoga_train:
-                bundle.putString("Train","Yoga");
-                fragTrain.setArguments(bundle);
-                break;
-            case R.id.medi_train:
-                bundle.putString("Train","Medi");
-                fragTrain.setArguments(bundle);
-                break;
-        }
-        fragmentTransaction.replace(R.id.main_frame,fragTrain)
-                .addToBackStack(null)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-                .commit();
+                fragmentTransaction.replace(R.id.main_frame,fragTrain)
+                        .addToBackStack(null)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+                        .commit();
+                return false;
+            }
+        });
     }
 }

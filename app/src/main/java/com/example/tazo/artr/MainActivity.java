@@ -12,9 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,8 +27,8 @@ public class MainActivity extends AppCompatActivity
     User_Info user_info;
 
     TextView username;
-    TextView userid;
     ImageView userava;
+    ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +61,52 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         View nav_header = navigationView.getHeaderView(0);
 
+        home = (ImageView)nav_header.findViewById(R.id.home);
         username = (TextView)nav_header.findViewById(R.id.user_name);
-        userid = (TextView)nav_header.findViewById(R.id.user_id);
         userava = (ImageView)nav_header.findViewById(R.id.imageView);
 
+        home.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if(user_info != null) {
+                    fragmentManager = getFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+
+                    FragHome fragHome = new FragHome();
+                    fragmentTransaction.replace(R.id.main_frame, fragHome).commit();
+
+                    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+                else{
+                    fragmentManager = getFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+
+                    FragYoga fragYoga = new FragYoga();
+                    fragmentTransaction.replace(R.id.main_frame, fragYoga).commit();
+
+                    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+                return false;
+            }
+        });
+
         if(user_info != null) {
+            userava.setImageResource(R.drawable.jy);
             username.setText(user_info.getMe_Name());
-            userid.setText(user_info.getMe_id());
         }else{
-            user_info = new User_Info();
-            username.setText(user_info.getMe_Name());
-            userid.setText(user_info.getMe_id());
+            userava.setImageResource(R.drawable.login);
+            userava.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    Intent i = new Intent(getApplication(),LoginActivity.class);
+                    finish();
+                    startActivity(i);
+                    return false;
+                }
+            });
+            username.setText("로그인을 해주세요.");
         }
     }
 
@@ -81,17 +118,20 @@ public class MainActivity extends AppCompatActivity
             }
             fragmentManager = getFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            FragYoga fragYoga = new FragYoga();
-            fragmentTransaction.add(R.id.main_frame, fragYoga);
-            fragmentTransaction.commit();
+
+            if(user_info!=null) {
+                FragHome fragHome = new FragHome();
+                fragmentTransaction.replace(R.id.main_frame, fragHome).commit();
+            }else{
+                FragYoga fragYoga = new FragYoga();
+                fragmentTransaction.replace(R.id.main_frame, fragYoga).commit();
+            }
+
         }
 
         Intent getIntent = getIntent();
         if(getIntent != null) {
             user_info = (User_Info) getIntent.getSerializableExtra("user_info");
-        }
-        else{
-            user_info = new User_Info();
         }
     }
 
@@ -146,14 +186,22 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.main_frame,fragPlay).commit();
 
         } else if (id == R.id.nav_menu) {
-            FragMy fragMy = new FragMy();
-
-            fragmentTransaction.replace(R.id.main_frame,fragMy).commit();
+            if(user_info != null) {
+                FragMy fragMy = new FragMy();
+                fragmentTransaction.replace(R.id.main_frame, fragMy).commit();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"로그인 해주세요.",Toast.LENGTH_LONG).show();
+            }
 
         }  else if (id == R.id.nav_share) {
-            FragFriend fragFriend = new FragFriend();
-            fragmentTransaction.replace(R.id.main_frame,fragFriend).commit();
-
+            if(user_info != null) {
+                FragFriend fragFriend = new FragFriend();
+                fragmentTransaction.replace(R.id.main_frame, fragFriend).commit();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"로그인 해주세요.",Toast.LENGTH_LONG).show();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

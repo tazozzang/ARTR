@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tazo on 2018-05-05.
@@ -20,12 +22,11 @@ public class FragMy extends Fragment {
 
     User_Info user_info;
 
-    TextView myName;
-    TextView myBirth;
-    TextView myTall;
-    TextView myKg;
-    TextView myCheck_Lev;
+    ArrayList<Ex> arrayList;
+    ExAdapter exAdapter;
+    Ex[] exes = new Ex[3];
 
+    ListView listView;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.frag_my, container, false);
@@ -37,17 +38,19 @@ public class FragMy extends Fragment {
     }
     void init(){
         //여기다가 화면 구성
-        myName = (TextView)root.findViewById(R.id.MyName);
-        myBirth = (TextView)root.findViewById(R.id.MyBirth);
-        myTall = (TextView)root.findViewById(R.id.MyTall);
-        myKg = (TextView)root.findViewById(R.id.MyKg);
-        myCheck_Lev = (TextView)root.findViewById(R.id.MyCheck);
+        arrayList = new ArrayList<Ex>();
+        listView = (ListView)root.findViewById(R.id.listview);
 
-        myName.setText(user_info.getMe_Name());
-        myBirth.setText(user_info.getMe_year() + "/" + user_info.getMe_month()+"/" + user_info.getMe_day());
-        myTall.setText(user_info.getMe_tall() + "cm");
-        myKg.setText(user_info.getMe_kg()+"kg");
-        myCheck_Lev.setText(user_info.getMe_check() + " Level " + user_info.getMe_level());
+        exes[0] = new Ex("요가",3,70);
+        exes[1] = new Ex("필라테스",2,52);
+        exes[2] = new Ex("PT",0,0);
+        arrayList.add(exes[0]);
+        arrayList.add(exes[1]);
+        arrayList.add(exes[2]);
+
+
+        exAdapter = new ExAdapter(root.getContext(),R.layout.friend_row,arrayList);
+        listView.setAdapter(exAdapter);
     }
 
     @Override

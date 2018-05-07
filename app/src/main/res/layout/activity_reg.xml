@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
+    android:background="@color/White"
     android:layout_height="fill_parent"
     tools:context="com.example.tazo.artr.RegActivity">
     <TableLayout
@@ -18,19 +19,19 @@
             android:textSize="15pt"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:textColor="#c573ff"
+            android:textColor="@color/colorPrimary"
             />
 
         <TableRow
             android:layout_marginBottom="10dp">
             <TextView
-                android:id="@+id/me_name"
                 android:gravity="center"
                 android:text="이름"
                 android:textSize="7pt"
                 android:layout_weight="1"
                 />
             <EditText
+                android:id="@+id/me_name"
                 android:layout_weight="3"
                 android:layout_width="150dp"/>
         </TableRow>
@@ -69,7 +70,7 @@
                     />
                 <Button
                     android:text="날짜"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/colorPastel"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -80,26 +81,28 @@
 
         <TableRow>
             <TextView
-                android:id="@+id/me_tall"
+
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="키"
                 android:textSize="7pt"
                 android:layout_weight="1"/>
             <EditText
+                android:id="@+id/me_tall"
                 android:layout_weight="3"/>
         </TableRow>
 
         <TableRow
             android:layout_marginBottom="10dp">
             <TextView
-                android:id="@+id/me_kg"
+
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="몸무게"
                 android:textSize="7pt"
                 android:layout_weight="1"/>
             <EditText
+                android:id="@+id/me_kg"
                 android:layout_weight="3"/>
         </TableRow>
 
@@ -108,7 +111,7 @@
             <TextView
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="목표"
+                android:text="선호"
                 android:textSize="7pt"
                 />
             <LinearLayout
@@ -119,23 +122,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <RadioButton
-                        android:id="@+id/me_check_diet"
+                        android:checked="true"
+                        android:id="@+id/me_check_pila"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="다이어트" />
+                        android:text="필라테스" />
                     <RadioButton
-                        android:id="@+id/me_check_stret"
+                        android:id="@+id/me_check_yoga"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="스트레칭" />
+                        android:text="요가" />
                     <RadioButton
-                        android:id="@+id/me_check_medi"
+                        android:id="@+id/me_check_pt"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="명상"
+                        android:text="P.T."
                         />
                 </RadioGroup>
 
@@ -143,44 +147,7 @@
 
         </TableRow>
 
-        <TableRow
-            android:layout_marginBottom="50dp">
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="실력"
-                android:textSize="7pt"
-                />
-            <LinearLayout
-                android:orientation="horizontal">
-                <RadioGroup
-                    android:id="@+id/radio_level"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/me_level_high"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="상" />
-                    <RadioButton
-                        android:id="@+id/me_level_mid"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="중" />
-                    <RadioButton
-                        android:id="@+id/me_level_low"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="하"
-                        />
-                </RadioGroup>
-            </LinearLayout>
 
-        </TableRow>
 
 
         <TableRow android:layout_marginBottom="10dp">
@@ -205,7 +172,7 @@
                 <Button
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/colorPastel"
                     android:onClick="check"
                     android:layout_weight="1"
                     android:text="중복 확인" />
@@ -232,7 +199,7 @@
             android:text="확인"
             android:onClick="regist"
             android:textColor="#404040"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPastel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </TableLayout>

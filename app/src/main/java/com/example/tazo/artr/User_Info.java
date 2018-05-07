@@ -14,7 +14,6 @@ public class User_Info implements Serializable{
     private int me_tall;
     private int me_kg;
     private int me_check;
-    private int me_level;
     private String me_id;
     private String me_pw;
 
@@ -25,9 +24,8 @@ public class User_Info implements Serializable{
         this.me_month = 7;
         this.me_day = 18;
         this.me_tall = 165;
-        this.me_kg = 53;
+        this.me_kg = 50;
         this.me_check = 1;
-        this.me_level = 1; // 내 레벨은 하
         this.me_id = "dlwldus718";
         this.me_pw = "dlwldus718";
     }
@@ -40,13 +38,12 @@ public class User_Info implements Serializable{
         this.me_tall = me_tall;
         this.me_kg = me_kg;
         this.me_check = 0;
-        this.me_level = 0;
         this.me_id = "dlwldus718";
         this.me_pw = "dlwldus718";
     }
 
     public User_Info(String me_Name, int me_year, int me_month, int me_day,
-                     int me_tall,int me_kg, int me_check, int me_level
+                     int me_tall,int me_kg, int me_check
     , String me_id, String me_pw){
         this.me_Name = me_Name;
         this.me_year = me_year;
@@ -55,7 +52,6 @@ public class User_Info implements Serializable{
         this.me_tall = me_tall;
         this.me_kg = me_kg;
         this.me_check = me_check;
-        this.me_level = me_level;
         this.me_id = me_id;
         this.me_pw = me_pw;
     }
@@ -67,7 +63,6 @@ public class User_Info implements Serializable{
     public void setMe_tall(int tall){this.me_tall = tall;}
     public void setMe_kg(int kg){this.me_kg = kg;}
     public void setMe_check(int check){this.me_check = check;}
-    public void setMe_level(int level){this.me_level = level;}
     public void setMe_id(String iden){this.me_id = iden;}
     public void setMe_pw(String pw){this.me_pw = pw;}
 
@@ -82,18 +77,17 @@ public class User_Info implements Serializable{
         String answer = "목표";
         switch (me_check){
             case 0:
-                answer =  "다이어트";
+                answer =  "필라테스";
                 break;
             case 1:
-                answer =  "스트레칭";
+                answer =  "요가";
                 break;
             case 2:
-                answer =   "명상";
+                answer =   "PT";
                 break;
         }
         return answer;
     }
-    public int getMe_level(){return me_level;}
     public String getMe_id(){return  me_id;}
     public String getMe_pw(){return me_pw;}
 
