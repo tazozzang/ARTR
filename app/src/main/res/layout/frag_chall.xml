@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/White"
+    android:padding="@dimen/fab_margin">
+
+    <TextView
+        android:text="목표 설정"
+        android:textSize="15pt"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <TextView
+        android:text="시간대"
+        android:gravity="center"
+        android:textColor="@color/colorPastelDark"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:src="@drawable/daytime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <SeekBar
+        android:progress="1"
+        android:max="3"
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:text="몸 상태"
+        android:gravity="center"
+        android:textColor="@color/colorPastelDark"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-->토글 버튼 여러개</-->
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp">
+
+        <ToggleButton
+            android:id="@+id/tb1"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="뻐근함"
+            android:textOff="뻐근함"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tb2"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="어깨뭉침"
+            android:textOff="어깨뭉침"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tb3"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="다리붓기"
+            android:textOff="다리붓기"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tb4"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="허리통증"
+            android:textOff="허리통증"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <TextView
+        android:text="목표"
+        android:gravity="center"
+        android:textColor="@color/colorPastelDark"
+        android:textSize="10pt"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
+
+        <ToggleButton
+            android:id="@+id/tb5"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="유연성"
+            android:textOff="유연성"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tb6"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="근력"
+            android:textOff="근력"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tb7"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="재활"
+            android:textOff="재활"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tb8"
+            android:layout_margin="5dp"
+            android:background="@drawable/toggle_a"
+            android:textOn="심리안정"
+            android:textOff="심리안정"
+            android:layout_weight="1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonPanel"
+        android:background="@color/colorPrimary"
+        android:text="연동하기"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-->토글 버튼 여러개</-->
+</LinearLayout>

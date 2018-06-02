@@ -8,11 +8,13 @@
     android:layout_gravity="center">
 
     <ImageView
+        android:layout_weight="1"
         android:id="@+id/fri_ava"
         android:src="@mipmap/ic_launcher"
         android:layout_width="75dp"
         android:layout_height="105dp" />
     <LinearLayout
+        android:layout_weight="2"
         android:layout_marginLeft="10dp"
         android:layout_width="200dp"
         android:layout_height="105dp"
@@ -42,6 +44,7 @@
             android:layout_height="20dp" />
     </LinearLayout>
     <ImageView
+        android:layout_weight="1"
         android:id="@+id/jorgi"
         android:layout_marginLeft="10dp"
         android:src="@drawable/jorgi"

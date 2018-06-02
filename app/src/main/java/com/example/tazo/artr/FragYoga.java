@@ -41,9 +41,9 @@ public class FragYoga extends Fragment {
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                FragTrain fragTrain = new FragTrain();
+                FragChallenge fragChallenge = new FragChallenge();
 
-                fragmentTransaction.replace(R.id.main_frame,fragTrain)
+                fragmentTransaction.replace(R.id.main_frame,fragChallenge)
                         .addToBackStack(null)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                         .commit();

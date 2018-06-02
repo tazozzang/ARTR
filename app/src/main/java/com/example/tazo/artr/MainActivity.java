@@ -119,6 +119,11 @@ public class MainActivity extends AppCompatActivity
             fragmentManager = getFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
 
+            Intent getIntent = getIntent();
+            if(getIntent != null) {
+                user_info = (User_Info) getIntent.getSerializableExtra("user_info");
+            }
+
             if(user_info!=null) {
                 FragHome fragHome = new FragHome();
                 fragmentTransaction.replace(R.id.main_frame, fragHome).commit();
@@ -129,10 +134,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        Intent getIntent = getIntent();
-        if(getIntent != null) {
-            user_info = (User_Info) getIntent.getSerializableExtra("user_info");
-        }
+
     }
 
     @Override
